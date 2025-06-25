@@ -224,3 +224,227 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+/**
+ * Enhanced Visual Effects and Interactions
+ * Custom enhancements for Multiservicios de Sonora
+ */
+(function() {
+  "use strict";
+
+  /**
+   * Section Animation on Scroll
+   */
+  function animateSections() {
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  }
+
+  /**
+   * Enhanced Button Interactions
+   */
+  function enhanceButtons() {
+    // Add ripple effect to buttons
+    const buttons = document.querySelectorAll('.btn-get-started, .btn-emergency, .buy-btn, button[type="submit"]');
+    
+    buttons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+  }
+
+  /**
+   * Smooth Counter Animation
+   */
+  function enhanceCounters() {
+    const counters = document.querySelectorAll('.purecounter');
+    const observerOptions = {
+      threshold: 0.7
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          counter.style.animation = 'countUp 2s ease-out';
+        }
+      });
+    }, observerOptions);
+
+    counters.forEach(counter => {
+      counterObserver.observe(counter);
+    });
+  }
+
+  /**
+   * Enhanced WhatsApp Button
+   */
+  function enhanceWhatsAppButton() {
+    const whatsappBtn = document.querySelector('.whatsapp-float');
+    if (whatsappBtn) {
+      // Add tooltip
+      const tooltip = document.createElement('div');
+      tooltip.className = 'whatsapp-tooltip';
+      tooltip.textContent = '¿Necesitas ayuda? ¡Escríbenos!';
+      tooltip.style.cssText = `
+        position: absolute;
+        right: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #333;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      `;
+      
+      whatsappBtn.style.position = 'relative';
+      whatsappBtn.appendChild(tooltip);
+      
+      whatsappBtn.addEventListener('mouseenter', () => {
+        tooltip.style.opacity = '1';
+      });
+      
+      whatsappBtn.addEventListener('mouseleave', () => {
+        tooltip.style.opacity = '0';
+      });
+    }
+  }
+
+  /**
+   * Form Enhancement
+   */
+  function enhanceForm() {
+    const form = document.querySelector('.php-email-form');
+    if (form) {
+      const inputs = form.querySelectorAll('input, textarea');
+      
+      inputs.forEach(input => {
+        // Add floating label effect
+        input.addEventListener('focus', function() {
+          this.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+          if (this.value === '') {
+            this.parentElement.classList.remove('focused');
+          }
+        });
+        
+        // Check if input has value on load
+        if (input.value !== '') {
+          input.parentElement.classList.add('focused');
+        }
+      });
+    }
+  }
+
+  /**
+   * Parallax Effect for Hero Section
+   */
+  function addParallaxEffect() {
+    const hero = document.querySelector('.hero');
+    const heroImg = hero?.querySelector('img');
+    
+    if (heroImg) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        heroImg.style.transform = `translateY(${rate}px)`;
+      });
+    }
+  }
+
+  /**
+   * Initialize all enhancements
+   */
+  function init() {
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+      return;
+    }
+
+    // Initialize all enhancements
+    animateSections();
+    enhanceButtons();
+    enhanceCounters();
+    enhanceWhatsAppButton();
+    enhanceForm();
+    addParallaxEffect();
+
+    // Add CSS for ripple effect
+    const style = document.createElement('style');
+    style.textContent = `
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+      }
+      
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes countUp {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      
+      .focused input,
+      .focused textarea {
+        border-color: var(--accent-color);
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Initialize when DOM is ready
+  init();
+
+})();
