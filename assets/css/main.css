@@ -1764,3 +1764,259 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# Multiservicios de Sonora Custom Styles
+--------------------------------------------------------------*/
+
+/* Custom brand colors for Multiservicios de Sonora */
+:root {
+  --primary-blue: #2c5f70;
+  --secondary-blue: #4a90a4;
+  --light-blue: #87ceeb;
+  --accent-blue: #1e4a5c;
+  --success-green: #28a745;
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebe57;
+  transform: scale(1.1);
+}
+
+.whatsapp-float i {
+  margin-top: 16px;
+}
+
+/* Service cards enhancements */
+.service-item {
+  transition: all 0.3s ease;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.service-item .icon {
+  background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+}
+
+/* Pricing cards enhancements */
+.pricing-item {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.pricing-item.featured {
+  border: 3px solid var(--primary-blue);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.pricing-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Button enhancements */
+.btn-get-started, .buy-btn {
+  background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-get-started:hover, .buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(44, 95, 112, 0.3);
+}
+
+/* Hero section improvements */
+.hero h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Stats section improvements */
+.stats-item {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+  border-radius: 15px;
+  padding: 30px 20px;
+  transition: all 0.3s ease;
+}
+
+.stats-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(44, 95, 112, 0.3);
+}
+
+.stats-item .purecounter {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* Team section improvements */
+.person {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.person:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.person figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.person .social {
+  background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+}
+
+/* Contact form improvements */
+.php-email-form .form-control {
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.php-email-form .form-control:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(44, 95, 112, 0.25);
+}
+
+.php-email-form button[type="submit"] {
+  background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+  border: none;
+  border-radius: 25px;
+  padding: 15px 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.php-email-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(44, 95, 112, 0.3);
+}
+
+/* Logo enhancements */
+.header .logo h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Footer improvements */
+.footer {
+  background: linear-gradient(135deg, var(--primary-blue), #1a4a57);
+  color: white;
+}
+
+.footer .footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.footer .footer-links a:hover {
+  color: var(--light-blue);
+}
+
+/* Portfolio filters */
+.portfolio-filters li {
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.portfolio-filters li.filter-active {
+  background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+  }
+  
+  .whatsapp-float i {
+    margin-top: 13px;
+  }
+}
+
+/* Emergency contact banner */
+.emergency-banner {
+  background: linear-gradient(45deg, #dc3545, #c82333);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+}
+
+.emergency-banner a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.emergency-banner a:hover {
+  text-decoration: underline;
+}
